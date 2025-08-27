@@ -51,7 +51,6 @@ final class AccessTokenService {
 
         guard httpResponse.statusCode == 200 else {
             let errorBody = String(data: data, encoding: .utf8) ?? "No response body"
-            print("[AccessTokenService] Error response: \(httpResponse.statusCode) - \(errorBody)")
             throw URLError(.badServerResponse)
         }
 
@@ -59,7 +58,6 @@ final class AccessTokenService {
             let decoded = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
             return decoded.access_token
         } catch {
-            print("[AccessTokenService] Decoding error: \(error)")
             throw error
         }
     }

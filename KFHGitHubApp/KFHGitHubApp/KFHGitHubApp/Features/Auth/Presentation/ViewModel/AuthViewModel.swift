@@ -25,7 +25,6 @@ final class AuthViewModel: ObservableObject {
             isLoggedIn = true
         } catch {
             loginError = error.localizedDescription
-            print("[AuthViewModel] Login error: \(error)")
         }
     }
 }

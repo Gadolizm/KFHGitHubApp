@@ -33,7 +33,6 @@ final class BranchListViewModel: ObservableObject {
             branches = try await fetchBranchesUseCase.execute(owner: owner, repo: repo)
         } catch {
             errorMessage = "Failed to load branches"
-            print("[BranchListViewModel] Error: \(error)")
         }
     }
 }
